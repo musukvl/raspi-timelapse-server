@@ -65,6 +65,8 @@ function stopStreaming() {
   }
 }
 
+
+
 function startStreaming(io) {
  
   if (app.get('watchingFile')) {

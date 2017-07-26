@@ -1,0 +1,29 @@
+<script>
+    var socket = io();
+    socket.on('liveStream', function(url) {
+        $('#stream').attr('src', url);
+    });
+
+    socket.on('error-message', function(message){
+        console.log("server error:" + message);
+    })
+
+    function startStream() {
+        socket.emit('start-stream');
+    }
+    function stopStream() {
+        socket.emit('stop-stream');
+    }
+</script>
+
+<div class="container">
+  <button type="button" id="" class="btn btn-info start" onclick="startStream()">Start Preview</button>
+  <button type="button" id="" class="btn btn-info start" onclick="stopStream()">Stop Preview</button>
+<hr>
+  <div class="row">
+      <div class="col-sm-12">
+        <img src="" id="stream" class="img-responsive"/>
+      </div>
+  </div>
+</div>
+
