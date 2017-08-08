@@ -1,0 +1,41 @@
+<div class="container">
+    <h2>Preview</h2>
+    <div class="row">
+        <div class="col-sm-12">
+            <button type="button" id="start-stream" class="btn btn-info start">Start</button>
+            <button type="button" id="stop-stream" class="btn btn-info start">Stop</button>
+            <hr/>
+            <img src="" id="stream" class="img-responsive"/>
+        </div>
+    </div>
+
+    <hr/>
+
+    <h2>Timelapse</h2>
+    <div class="row">
+        <div class="col-sm-12">
+            Period: <input type="number" value="1500" min="0" step="100" id="timelapse-period" pattern="\d*" class="form-control"/>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-12">
+            Image Save Destination:
+            <select id="timelapse-output" class="form-control">
+                <% for (var folder of outputFolders) { %>
+                <option value="<%= folder.fullPath %>"><%= folder.name %> </option>
+                <% }%>
+            </select>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-12">
+            <br/>
+            <button type="button" id="start-timelapse" class="btn btn-info start">Start</button>
+            <button type="button" id="stop-timelapse" class="btn btn-info start">Stop</button>
+        </div>
+    </div>
+    <hr/>
+
+    <%- partial('partials/logbox.ejs') %>
+</div>
+
